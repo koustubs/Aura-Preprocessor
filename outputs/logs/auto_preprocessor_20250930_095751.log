@@ -1,0 +1,56 @@
+2025-09-30 09:57:52,199 - auto_preprocessor - INFO - Starting AutoDataPreprocessor
+2025-09-30 09:57:52,199 - auto_preprocessor.data_analyzer - INFO - Loading dataset from data/raw/cleaned_titanic.csv
+2025-09-30 09:57:52,205 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 09:57:52,205 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 09:57:52,209 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 09:57:52,209 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 09:57:52,245 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 09:57:52,260 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 09:57:52,261 - auto_preprocessor.llm_client - INFO - Sending analysis request to Groq API (model: llama-3.1-8b-instant)
+2025-09-30 09:57:52,421 - auto_preprocessor.llm_client - ERROR - API request failed: 413 Client Error: Payload Too Large for url: https://api.groq.com/openai/v1/chat/completions
+2025-09-30 09:57:52,421 - auto_preprocessor.llm_client - ERROR - Response content: {"error":{"message":"Request too large for model `llama-3.1-8b-instant` in organization `org_01jy0j458afn8bft6jkt9j4jc0` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 10725, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2025-09-30 09:57:54,521 - auto_preprocessor.llm_client - ERROR - API request failed: 413 Client Error: Payload Too Large for url: https://api.groq.com/openai/v1/chat/completions
+2025-09-30 09:57:54,522 - auto_preprocessor.llm_client - ERROR - Response content: {"error":{"message":"Request too large for model `llama-3.1-8b-instant` in organization `org_01jy0j458afn8bft6jkt9j4jc0` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 10725, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2025-09-30 09:57:56,676 - auto_preprocessor.llm_client - ERROR - API request failed: 413 Client Error: Payload Too Large for url: https://api.groq.com/openai/v1/chat/completions
+2025-09-30 09:57:56,676 - auto_preprocessor.llm_client - ERROR - Response content: {"error":{"message":"Request too large for model `llama-3.1-8b-instant` in organization `org_01jy0j458afn8bft6jkt9j4jc0` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 10725, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2025-09-30 09:57:56,676 - auto_preprocessor - ERROR - Error: RetryError[<Future at 0x7ff6debe78f0 state=finished raised HTTPError>]
+Traceback (most recent call last):
+  File "/home/santosh/AURA ML/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/llm_client.py", line 112, in _make_api_request
+    response.raise_for_status()
+  File "/home/santosh/AURA ML/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 413 Client Error: Payload Too Large for url: https://api.groq.com/openai/v1/chat/completions
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/main.py", line 257, in main
+    analysis_result = analyze_dataset(
+                      ^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/main.py", line 111, in analyze_dataset
+    analysis_result = analyzer.analyze_dataset(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/data_analyzer.py", line 335, in analyze_dataset
+    llm_response = self.llm_client.analyze_dataset(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/llm_client.py", line 208, in analyze_dataset
+    response = self._make_api_request(payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 421, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7ff6debe78f0 state=finished raised HTTPError>]

@@ -1,0 +1,12 @@
+2025-09-30 08:36:11,339 - auto_preprocessor - INFO - Starting AutoDataPreprocessor
+2025-09-30 08:36:11,340 - auto_preprocessor.data_analyzer - INFO - Loading dataset from data/raw/sample_customer_data.csv
+2025-09-30 08:36:11,343 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 30 rows, 9 columns
+2025-09-30 08:36:11,344 - auto_preprocessor.data_analyzer - INFO - Using entire dataset as sample (30 rows)
+2025-09-30 08:36:11,347 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_sample_customer_data.csv
+2025-09-30 08:36:11,347 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 08:36:11,370 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_sample_customer_data.json
+2025-09-30 08:36:11,376 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 08:36:11,377 - auto_preprocessor.llm_client - INFO - Sending analysis request to Groq API (model: llama-3.1-8b-instant)
+2025-09-30 08:36:13,497 - auto_preprocessor.llm_client - INFO - Received response in 2.12 seconds
+2025-09-30 08:36:13,543 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/AURA ML/AutoDataPreprocessor/outputs/reports/analysis_sample_customer_data_20250930_083613.json
+2025-09-30 08:36:13,545 - auto_preprocessor - INFO - AutoDataPreprocessor completed successfully

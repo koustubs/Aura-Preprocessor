@@ -1,0 +1,31 @@
+id,name,age,gender,income,education,city,signup_date,purchase_amount
+1,John Smith,34,Male,65000.0,Bachelor,New York,2023-01-15,1200.5
+2,Emily Johnson,28,Female,72000.0,Master,Los Angeles,2023-02-20,980.25
+3,Michael Brown,45,Male,85000.0,PhD,Chicago,2022-11-30,1500.75
+4,Jessica Davis,31,Female,58000.0,Bachelor,Houston,2023-03-05,750.3
+5,David Wilson,39,Male,92000.0,Master,Phoenix,2023-01-08,2100.0
+6,Sarah Martinez,27,Female,48000.0,Bachelor,Philadelphia,2023-04-10,620.8
+7,Robert Taylor,52,Male,78000.0,Bachelor,San Antonio,2022-12-18,950.6
+8,Jennifer Garcia,36,Female,67000.0,Master,San Diego,2023-02-14,1080.4
+9,William Rodriguez,41,Male,89000.0,PhD,Dallas,2023-03-22,1750.9
+10,Elizabeth Lee,29,Female,59000.0,Bachelor,San Jose,2022-10-05,830.15
+11,Thomas Hernandez,48,Male,,Master,Austin,2023-01-30,1300.7
+12,Nancy Lopez,33,Female,71000.0,Bachelor,Indianapolis,2022-09-12,920.5
+13,Charles Gonzalez,37,Male,81000.0,Master,Jacksonville,2023-02-28,1600.25
+14,Margaret Wilson,44,Female,93000.0,PhD,San Francisco,2022-12-05,2200.3
+15,Joseph Moore,31,Male,62000.0,Bachelor,Columbus,2023-03-15,880.75
+16,Lisa Taylor,29,Female,54000.0,,Fort Worth,2022-11-20,650.4
+17,Daniel White,46,Male,87000.0,Master,Charlotte,2023-01-17,1420.6
+18,Patricia Harris,38,Female,76000.0,Master,Seattle,2023-02-09,1150.9
+19,Matthew Martin,42,Male,96000.0,PhD,Denver,2022-10-30,1850.25
+20,Karen Thompson,32,Female,61000.0,Bachelor,Boston,2023-04-05,910.7
+21,Donald Robinson,50,Male,,Bachelor,Portland,2022-09-25,780.5
+22,Laura Walker,35,Female,69000.0,Master,Las Vegas,2023-03-12,1050.6
+23,Paul Hall,40,Male,82000.0,Master,Atlanta,2022-12-28,1350.4
+24,Sandra Allen,27,Female,51000.0,Bachelor,Miami,2023-02-04,600.8
+25,Mark Young,43,Male,88000.0,PhD,Detroit,2023-01-22,1550.3
+26,Betty King,36,Female,74000.0,Master,Minneapolis,2022-11-15,1100.2
+27,George Wright,39,Male,79000.0,Master,Tulsa,2023-04-01,1250.75
+28,Linda Scott,34,Female,63000.0,Bachelor,Cleveland,2022-10-18,890.5
+29,Richard Adams,47,Male,91000.0,PhD,Tampa,2023-03-28,1680.9
+30,Susan Baker,30,Female,57000.0,Bachelor,Pittsburgh,2022-09-30,720.4

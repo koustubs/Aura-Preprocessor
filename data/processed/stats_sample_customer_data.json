@@ -1,0 +1,168 @@
+{
+  "dataset_info": {
+    "shape": [
+      30,
+      9
+    ],
+    "memory_usage": 0.009242057800292969
+  },
+  "missing_summary": {
+    "total_missing": 3,
+    "total_missing_percentage": 1.1111111111111112,
+    "columns_with_missing": 2,
+    "columns_all_missing": 0
+  },
+  "column_stats": {
+    "id": {
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 30,
+      "min": 1.0,
+      "max": 30.0,
+      "mean": 15.5,
+      "median": 15.5,
+      "std": 8.803408430829505,
+      "skewness": 0.0,
+      "kurtosis": -1.2000000000000002,
+      "is_integer": true,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    },
+    "name": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 30,
+      "top_values": {
+        "John Smith": 0.03333333333333333,
+        "Emily Johnson": 0.03333333333333333,
+        "Michael Brown": 0.03333333333333333,
+        "Jessica Davis": 0.03333333333333333,
+        "David Wilson": 0.03333333333333333
+      },
+      "is_binary": false,
+      "is_high_cardinality": false,
+      "potential_datetime": false
+    },
+    "age": {
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 24,
+      "min": 27.0,
+      "max": 52.0,
+      "mean": 37.43333333333333,
+      "median": 36.5,
+      "std": 7.176029703035696,
+      "skewness": 0.32105356245141425,
+      "kurtosis": -0.8940951214070179,
+      "is_integer": true,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    },
+    "gender": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 2,
+      "top_values": {
+        "Male": 0.5,
+        "Female": 0.5
+      },
+      "is_binary": true,
+      "is_high_cardinality": false,
+      "potential_datetime": false
+    },
+    "income": {
+      "dtype": "float64",
+      "missing_count": 2,
+      "missing_percentage": 6.666666666666667,
+      "unique_count": 28,
+      "min": 48000.0,
+      "max": 96000.0,
+      "mean": 73142.85714285714,
+      "median": 73000.0,
+      "std": 13988.657536823886,
+      "skewness": -0.05916467688596967,
+      "kurtosis": -1.1587366348445252,
+      "is_integer": true,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    },
+    "education": {
+      "dtype": "object",
+      "missing_count": 1,
+      "missing_percentage": 3.3333333333333335,
+      "unique_count": 3,
+      "top_values": {
+        "Bachelor": 0.41379310344827586,
+        "Master": 0.3793103448275862,
+        "PhD": 0.20689655172413793
+      },
+      "is_binary": false,
+      "is_high_cardinality": false,
+      "potential_datetime": false
+    },
+    "city": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 30,
+      "top_values": {
+        "New York": 0.03333333333333333,
+        "Los Angeles": 0.03333333333333333,
+        "Chicago": 0.03333333333333333,
+        "Houston": 0.03333333333333333,
+        "Phoenix": 0.03333333333333333
+      },
+      "is_binary": false,
+      "is_high_cardinality": false,
+      "potential_datetime": false
+    },
+    "signup_date": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 30,
+      "top_values": {
+        "2023-01-15": 0.03333333333333333,
+        "2023-02-20": 0.03333333333333333,
+        "2022-11-30": 0.03333333333333333,
+        "2023-03-05": 0.03333333333333333,
+        "2023-01-08": 0.03333333333333333
+      },
+      "is_binary": false,
+      "is_high_cardinality": false,
+      "potential_datetime": true
+    },
+    "purchase_amount": {
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 30,
+      "min": 600.8,
+      "max": 2200.3,
+      "mean": 1187.5116666666668,
+      "median": 1090.3000000000002,
+      "std": 434.75969832797284,
+      "skewness": 0.7178282640123598,
+      "kurtosis": -0.22172965108398168,
+      "is_integer": false,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    }
+  },
+  "high_correlations": [
+    {
+      "col1": "age",
+      "col2": "income",
+      "correlation": 0.8377673227695136
+    },
+    {
+      "col1": "income",
+      "col2": "purchase_amount",
+      "correlation": 0.9246505813721698
+    }
+  ]
+}

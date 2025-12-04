@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}Column Actions - AutoDataPreprocessor{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-robot"></i> AI Data Preprocessing Assistant</h2>
+            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-upload"></i> Upload New Dataset
+            </a>
+        </div>
+
+        <!-- LLM Recommendations Section -->
+        {% if llm_recommendations %}
+        <div class="card mb-4 recommendation-card">
+            <div class="card-header bg-gradient-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-magic"></i> AI Recommendations</h5>
+                <small>Based on intelligent analysis of your dataset</small>
+            </div>
+            <div class="card-body">
+                <h6><i class="fas fa-exclamation-triangle text-warning"></i> Columns that need attention:</h6>
+                <div class="recommendation-list">
+                    {% for col_name, rec in llm_recommendations.items() %}
+                    <div class="recommendation-item mb-2 p-3 border rounded">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <strong class="text-primary">{{ loop.index }}. {{ col_name }}</strong>
+                                <span class="badge bg-{{ 
+                                    'danger' if 'missing' in rec.issues|join('')|lower 
+                                    else 'warning' if 'outlier' in rec.issues|join('')|lower
+                                    else 'info' 
+                                }} ms-2">{{ rec.issues|join(', ') if rec.issues else 'Quality Issue' }}</span>
+                                
+                                {% if rec.primary_action %}
+                                <div class="mt-1">
+                                    <small class="text-muted">
+                                        <i class="fas fa-arrow-right"></i> 
+                                        <strong>Suggested:</strong> {{ rec.primary_action.action|replace('_', ' ')|title }}
+                                        {% if rec.primary_action.method %}
+                                        ({{ rec.primary_action.method }})
+                                        {% endif %}
+                                    </small>
+                                </div>
+                                {% endif %}
+                                
+                                {% if rec.reasoning %}
+                                <div class="reasoning-text mt-1">
+                                    <small class="text-muted">{{ rec.reasoning }}</small>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary apply-rec-btn" 
+                                    data-column="{{ col_name }}"
+                                    data-action="{{ rec.primary_action.action if rec.primary_action else '' }}"
+                                    data-method="{{ rec.primary_action.method if rec.primary_action and rec.primary_action.method else '' }}">
+                                <i class="fas fa-check"></i> Apply
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="mt-3">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> 
+                        <strong>Quick Start:</strong> Review the recommendations above and use the form below to apply preprocessing actions.
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            <strong>No specific issues detected.</strong> 
+            Your dataset looks good! You can still apply custom preprocessing if needed.
+        </div>
+        {% endif %}
+
+        <!-- Column Processing Form -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h6 class="mb-0"><i class="fas fa-cogs"></i> Apply Preprocessing Actions</h6>
+            </div>
+            <div class="card-body">
+                <p class="text-muted mb-4">
+                    Select the preprocessing actions you want to apply to each column. You can choose specific actions for each column based on the AI recommendations above.
+                </p>
+            </div>
+        </div>
+
+        <!-- Column Workspace -->
+        <div id="columnWorkspace" class="mb-4">
+            <div class="row" id="selectedColumnsContainer">
+                <!-- Selected columns will be dynamically added here -->
+            </div>
+        </div>
+
+        <form action="{{ url_for('custom_clean_dataset') }}" method="POST">
+            <div class="row">
+                {% for column_name, column_info in column_analysis.items() %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-{{ 
+                            'primary' if column_info.type == 'numerical' 
+                            else 'success' if column_info.type == 'categorical'
+                            else 'warning' if column_info.type == 'datetime'
+                            else 'info' 
+                        }} text-white">
+                            <h6 class="mb-0">
+                                <i class="fas fa-{{ 
+                                    'calculator' if column_info.type == 'numerical' 
+                                    else 'tags' if column_info.type == 'categorical'
+                                    else 'calendar' if column_info.type == 'datetime'
+                                    else 'file-text' 
+                                }}"></i>
+                                {{ column_name }}
+                            </h6>
+                            <small>{{ column_info.type|title }} Column</small>
+                        </div>
+                        <div class="card-body">
+                            <!-- AI Insights Banner -->
+                            {% if llm_recommendations.get(column_name) %}
+                            <div class="alert alert-warning alert-sm mb-3">
+                                <i class="fas fa-lightbulb"></i>
+                                <strong>AI Detected:</strong> {{ llm_recommendations[column_name].issues|join(', ') if llm_recommendations[column_name].issues else 'Issue found' }}
+                                <br>
+                                <small>Recommended: {{ llm_recommendations[column_name].primary_action.action|replace('_', ' ')|title if llm_recommendations[column_name].primary_action else 'See AI suggestion' }}</small>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Column Statistics -->
+                            <div class="mb-3">
+                                <small class="text-muted">
+                                    <div><strong>Missing:</strong> {{ column_info.missing_count }} ({{ "%.1f"|format(column_info.missing_percentage) }}%)</div>
+                                    <div><strong>Unique:</strong> {{ column_info.unique_count }} values</div>
+                                    
+                                    {% if column_info.type == 'numerical' and column_info.mean is not none %}
+                                    <div><strong>Mean:</strong> {{ "%.2f"|format(column_info.mean) }}</div>
+                                    <div><strong>Std:</strong> {{ "%.2f"|format(column_info.std) }}</div>
+                                    {% endif %}
+                                    
+                                    {% if column_info.top_values %}
+                                    <div><strong>Top values:</strong> 
+                                        {% for value, count in column_info.top_values.items() %}
+                                            {{ value }} ({{ count }}){% if not loop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    
+                                    {% if column_info.sample_values %}
+                                    <div><strong>Sample:</strong> {{ column_info.sample_values|join(', ')|truncate(50) }}</div>
+                                    {% endif %}
+                                </small>
+                            </div>
+                            
+                            <!-- Action Selection -->
+                            <div class="form-group">
+                                <label class="form-label"><strong>Choose Action:</strong></label>
+                                <select name="action_{{ column_name }}" class="form-select">
+                                    {% for action in column_info.available_actions %}
+                                    <option value="{{ action.action }}" 
+                                            {% if action.action == 'skip' %}selected{% endif %}>
+                                        {{ action.label }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                                <div class="mt-1">
+                                    <small class="text-muted">Choose the preprocessing action to apply to this column.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-success btn-lg">
+                        <i class="fas fa-play"></i> Apply Preprocessing Actions
+                    </button>
+                    <div class="mt-2">
+                        <small class="text-muted">This will process your dataset with the selected actions and generate a cleaned version.</small>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.recommendation-card {
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+.recommendation-item {
+    background: #f8f9fa;
+    border-left: 3px solid #28a745;
+}
+
+.alert-sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+</style>
+{% endblock %}

@@ -1,0 +1,99 @@
+2025-09-30 22:37:10,198 - werkzeug - WARNING -  * Debugger is active!
+2025-09-30 22:37:10,198 - werkzeug - INFO -  * Debugger PIN: 155-359-408
+2025-09-30 22:38:00,177 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:00] "GET / HTTP/1.1" 200 -
+2025-09-30 22:38:09,838 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:09] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-30 22:38:09,845 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:09,855 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:09,856 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 22:38:09,863 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 22:38:09,863 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 22:38:09,917 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 22:38:09,923 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 22:38:09,924 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 22:38:09,924 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_223809.json
+2025-09-30 22:38:09,924 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:09,927 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:09,959 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:09] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 22:38:45,406 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:45,413 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:45,414 - auto_preprocessor.data_cleaner - INFO - Starting dataset processing
+2025-09-30 22:38:45,414 - auto_preprocessor.data_cleaner - INFO - Using custom user-specified actions
+2025-09-30 22:38:45,415 - auto_preprocessor.data_cleaner - INFO - Processing column: Age with custom actions
+2025-09-30 22:38:45,415 - auto_preprocessor.data_cleaner - INFO - Applying impute_mean to Age
+2025-09-30 22:38:45,415 - auto_preprocessor - ERROR - Error during custom cleaning: 'DataCleaner' object has no attribute '_apply_column_action'
+Traceback (most recent call last):
+  File "/home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/app.py", line 287, in custom_clean_dataset
+    cleaned_df = cleaner.process_dataset(df, custom_actions=custom_actions)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/src/data_cleaner.py", line 119, in process_dataset
+    df_cleaned = self._apply_column_action(df_cleaned, column_name, action_dict)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataCleaner' object has no attribute '_apply_column_action'
+2025-09-30 22:38:45,423 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:45] "[32mPOST /custom-clean HTTP/1.1[0m" 302 -
+2025-09-30 22:38:45,434 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:45,439 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:45,439 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 22:38:45,441 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 22:38:45,441 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 22:38:45,461 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 22:38:45,465 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 22:38:45,466 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 22:38:45,466 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_223845.json
+2025-09-30 22:38:45,466 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:45,469 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:45,491 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:45] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 22:38:49,347 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:49] "[32mPOST /custom-clean HTTP/1.1[0m" 302 -
+2025-09-30 22:38:49,355 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:49,358 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:49,358 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 22:38:49,360 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 22:38:49,360 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 22:38:49,384 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 22:38:49,388 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 22:38:49,388 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 22:38:49,388 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_223849.json
+2025-09-30 22:38:49,389 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:38:49,391 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:38:49,407 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:38:49] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 22:39:02,104 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:39:02] "[32mPOST /custom-clean HTTP/1.1[0m" 302 -
+2025-09-30 22:39:02,120 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:39:02,128 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:39:02,129 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 22:39:02,133 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 22:39:02,134 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 22:39:02,166 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 22:39:02,171 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 22:39:02,171 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 22:39:02,171 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_223902.json
+2025-09-30 22:39:02,172 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:39:02,174 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:39:02,190 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:39:02] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 22:39:06,963 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:39:06,972 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:39:06,972 - auto_preprocessor.data_cleaner - INFO - Starting dataset processing
+2025-09-30 22:39:06,972 - auto_preprocessor.data_cleaner - INFO - Using custom user-specified actions
+2025-09-30 22:39:06,972 - auto_preprocessor.data_cleaner - INFO - Processing column: Cabin with custom actions
+2025-09-30 22:39:06,972 - auto_preprocessor.data_cleaner - INFO - Applying drop_missing to Cabin
+2025-09-30 22:39:06,973 - auto_preprocessor - ERROR - Error during custom cleaning: 'DataCleaner' object has no attribute '_apply_column_action'
+Traceback (most recent call last):
+  File "/home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/app.py", line 287, in custom_clean_dataset
+    cleaned_df = cleaner.process_dataset(df, custom_actions=custom_actions)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/src/data_cleaner.py", line 119, in process_dataset
+    df_cleaned = self._apply_column_action(df_cleaned, column_name, action_dict)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataCleaner' object has no attribute '_apply_column_action'
+2025-09-30 22:39:06,981 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:39:06] "[32mPOST /custom-clean HTTP/1.1[0m" 302 -
+2025-09-30 22:39:06,998 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:39:07,007 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:39:07,008 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 22:39:07,011 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 22:39:07,011 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 22:39:07,044 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 22:39:07,048 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 22:39:07,049 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 22:39:07,049 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_223907.json
+2025-09-30 22:39:07,049 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 22:39:07,052 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 22:39:07,068 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 22:39:07] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 22:40:33,682 - werkzeug - INFO -  * Detected change in '/home/santosh/Desktop/Github Pull/AURA-ML-Sandy-/AutoDataPreprocessor/src/data_cleaner.py', reloading

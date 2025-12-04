@@ -1,0 +1,204 @@
+{
+  "dataset_info": {
+    "shape": [
+      891,
+      12
+    ],
+    "memory_usage": 0.2945880889892578
+  },
+  "missing_summary": {
+    "total_missing": 13,
+    "total_missing_percentage": 0.12158623269734382,
+    "columns_with_missing": 3,
+    "columns_all_missing": 0
+  },
+  "column_stats": {
+    "PassengerId": {
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 891,
+      "min": 1.0,
+      "max": 891.0,
+      "mean": 446.0,
+      "median": 446.0,
+      "std": 257.3538420152301,
+      "skewness": 0.0,
+      "kurtosis": -1.1999999999999997,
+      "is_integer": true,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    },
+    "Survived": {
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.3838383838383838,
+      "median": 0.0,
+      "std": 0.4865924542648575,
+      "skewness": 0.4785234382949897,
+      "kurtosis": -1.775004671066304,
+      "is_integer": true,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    },
+    "Pclass": {
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 3,
+      "min": 1.0,
+      "max": 3.0,
+      "mean": 2.308641975308642,
+      "median": 3.0,
+      "std": 0.836071240977049,
+      "skewness": -0.6305479068752845,
+      "kurtosis": -1.2800149715782825,
+      "is_integer": true,
+      "potential_outliers": 0,
+      "potential_outliers_pct": 0.0
+    },
+    "Name": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 891,
+      "top_values": {
+        "Braund, Mr. Owen Harris": 0.001122334455667789,
+        "Cumings, Mrs. John Bradley (Florence Briggs Thayer)": 0.001122334455667789,
+        "Heikkinen, Miss. Laina": 0.001122334455667789,
+        "Futrelle, Mrs. Jacques Heath (Lily May Peel)": 0.001122334455667789,
+        "Allen, Mr. William Henry": 0.001122334455667789
+      },
+      "is_binary": false,
+      "is_high_cardinality": true,
+      "potential_datetime": false
+    },
+    "Sex": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 2,
+      "top_values": {
+        "male": 0.6475869809203143,
+        "female": 0.35241301907968575
+      },
+      "is_binary": true,
+      "is_high_cardinality": false,
+      "potential_datetime": false
+    },
+    "Age": {
+      "dtype": "float64",
+      "missing_count": 4,
+      "missing_percentage": 0.44893378226711567,
+      "unique_count": 89,
+      "min": 0.42,
+      "max": 80.0,
+      "mean": 29.78006068041647,
+      "median": 29.6991176470588,
+      "std": 12.958058372114925,
+      "skewness": 0.4440238758378979,
+      "kurtosis": 0.9836486903926742,
+      "is_integer": false,
+      "potential_outliers": 65,
+      "potential_outliers_pct": 7.328072153325817
+    },
+    "SibSp": {
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 7,
+      "min": 0.0,
+      "max": 8.0,
+      "mean": 0.5230078563411896,
+      "median": 0.0,
+      "std": 1.1027434322934317,
+      "skewness": 3.6953517271630565,
+      "kurtosis": 17.880419726645968,
+      "is_integer": true,
+      "potential_outliers": 46,
+      "potential_outliers_pct": 5.16273849607183
+    },
+    "Parch": {
+      "dtype": "float64",
+      "missing_count": 5,
+      "missing_percentage": 0.5611672278338945,
+      "unique_count": 7,
+      "min": 0.0,
+      "max": 6.0,
+      "mean": 0.38261851015801357,
+      "median": 0.0,
+      "std": 0.8076556889715898,
+      "skewness": 2.7444554506182994,
+      "kurtosis": 9.734674531547544,
+      "is_integer": true,
+      "potential_outliers": 212,
+      "potential_outliers_pct": 23.927765237020317
+    },
+    "Ticket": {
+      "dtype": "object",
+      "missing_count": 4,
+      "missing_percentage": 0.44893378226711567,
+      "unique_count": 679,
+      "top_values": {
+        "1601": 0.007891770011273957,
+        "CA. 2343": 0.007891770011273957,
+        "347082": 0.007891770011273957,
+        "347088": 0.006764374295377677,
+        "CA 2144": 0.006764374295377677
+      },
+      "is_binary": false,
+      "is_high_cardinality": true,
+      "potential_datetime": false
+    },
+    "Fare": {
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 248,
+      "min": 0.0,
+      "max": 512.3292,
+      "mean": 32.204207968574636,
+      "median": 14.4542,
+      "std": 49.6934285971809,
+      "skewness": 4.787316519674893,
+      "kurtosis": 33.39814088089868,
+      "is_integer": false,
+      "potential_outliers": 116,
+      "potential_outliers_pct": 13.019079685746352
+    },
+    "Cabin": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 147,
+      "top_values": {
+        "B96 B98": 0.7755331088664422,
+        "C23 C25 C27": 0.004489337822671156,
+        "G6": 0.004489337822671156,
+        "F33": 0.003367003367003367,
+        "D": 0.003367003367003367
+      },
+      "is_binary": false,
+      "is_high_cardinality": true,
+      "potential_datetime": false
+    },
+    "Embarked": {
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_percentage": 0.0,
+      "unique_count": 3,
+      "top_values": {
+        "S": 0.7250280583613917,
+        "C": 0.18855218855218855,
+        "Q": 0.08641975308641975
+      },
+      "is_binary": false,
+      "is_high_cardinality": false,
+      "potential_datetime": false
+    }
+  }
+}

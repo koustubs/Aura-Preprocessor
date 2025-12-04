@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis Reports - AutoDataPreprocessor{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-chart-bar"></i> Analysis Reports</h2>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">
+                <i class="fas fa-upload"></i> Upload New Dataset
+            </a>
+        </div>
+
+        {% if reports %}
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-history"></i> Report History ({{ reports|length }} reports)</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Dataset</th>
+                                <th>Dimensions</th>
+                                <th>Created</th>
+                                <th>Report File</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for report in reports %}
+                            <tr>
+                                <td>
+                                    <strong>{{ report.dataset_name }}</strong>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">{{ report.rows }} rows</span>
+                                    <span class="badge bg-secondary">{{ report.columns }} cols</span>
+                                </td>
+                                <td>
+                                    <small class="text-muted">{{ report.created }}</small>
+                                </td>
+                                <td>
+                                    <code>{{ report.filename }}</code>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-info" 
+                                            onclick="loadReport('{{ report.filename }}')">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Viewer Modal -->
+        <div class="modal fade" id="reportModal" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="fas fa-file-alt"></i> Analysis Report
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="reportContent">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Loading report...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="downloadCurrentReport()">
+                            <i class="fas fa-download"></i> Download JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-chart-bar fa-5x text-muted mb-4"></i>
+            <h4 class="text-muted">No Reports Available</h4>
+            <p class="text-muted">Upload and analyze a dataset to see reports here.</p>
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-upload"></i> Upload Your First Dataset
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

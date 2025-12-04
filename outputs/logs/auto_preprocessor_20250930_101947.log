@@ -1,0 +1,17 @@
+2025-09-30 10:19:48,833 - werkzeug - WARNING -  * Debugger is active!
+2025-09-30 10:19:48,834 - werkzeug - INFO -  * Debugger PIN: 119-292-209
+2025-09-30 10:20:10,283 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:20:10] "GET / HTTP/1.1" 200 -
+2025-09-30 10:20:22,434 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:20:22] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-30 10:20:22,455 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:20:22,470 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:20:22,471 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 10:20:22,478 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 10:20:22,478 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 10:20:22,555 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 10:20:22,565 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 10:20:22,566 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 10:20:22,567 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/AURA ML/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_102022.json
+2025-09-30 10:20:22,567 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:20:22,571 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:20:22,622 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:20:22] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 10:23:51,719 - werkzeug - INFO -  * Detected change in '/home/santosh/AURA ML/AutoDataPreprocessor/app.py', reloading

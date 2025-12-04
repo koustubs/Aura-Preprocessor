@@ -1,0 +1,12 @@
+2025-09-30 09:58:26,592 - auto_preprocessor - INFO - Starting AutoDataPreprocessor
+2025-09-30 09:58:26,592 - auto_preprocessor.data_analyzer - INFO - Loading dataset from data/raw/cleaned_titanic.csv
+2025-09-30 09:58:26,598 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 09:58:26,598 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 09:58:26,601 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 09:58:26,601 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 09:58:26,637 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 09:58:26,643 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 09:58:26,644 - auto_preprocessor.llm_client - INFO - Sending analysis request to Groq API (model: llama-3.1-8b-instant)
+2025-09-30 09:58:28,954 - auto_preprocessor.llm_client - INFO - Received response in 2.31 seconds
+2025-09-30 09:58:29,000 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/AURA ML/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_095828.json
+2025-09-30 09:58:29,003 - auto_preprocessor - INFO - AutoDataPreprocessor completed successfully

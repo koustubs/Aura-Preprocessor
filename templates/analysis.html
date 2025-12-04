@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis Results - AutoDataPreprocessor{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-chart-bar"></i> Dataset Analysis Results</h2>
+            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-upload"></i> Upload New Dataset
+            </a>
+        </div>
+
+        <!-- Dataset Overview -->
+        {% if analysis and analysis.dataset_overview %}
+        <div class="card analysis-card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Dataset Overview</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6><i class="fas fa-file"></i> {{ dataset_info.filename }}</h6>
+                        <p class="mb-0">{{ analysis.dataset_overview.title or 'Uploaded Dataset' }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h6><i class="fas fa-table"></i> Shape</h6>
+                        <p class="mb-0">{{ analysis.dataset_overview.n_rows }} rows × {{ analysis.dataset_overview.n_cols }} columns</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h6><i class="fas fa-exclamation-triangle"></i> Missing Data</h6>
+                        <p class="mb-0">{{ "%.1f"|format(analysis.dataset_overview.missing_overall_pct) }}%</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h6><i class="fas fa-bullseye"></i> Target Candidates</h6>
+                        <p class="mb-0">
+                            {% if analysis.dataset_overview.target_candidates %}
+                                {{ ', '.join(analysis.dataset_overview.target_candidates) }}
+                            {% else %}
+                                None detected
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Quality Issues -->
+        {% if analysis and analysis.quality_issues %}
+        <div class="card analysis-card mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Quality Issues ({{ analysis.quality_issues|length }})</h5>
+            </div>
+            <div class="card-body">
+                {% for issue in analysis.quality_issues %}
+                <div class="alert alert-light border-start border-3 border-{% if issue.severity == 'high' %}danger{% elif issue.severity == 'medium' %}warning{% else %}success{% endif %} mb-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="severity-{{ issue.severity }}">
+                                <i class="fas fa-{% if issue.severity == 'high' %}exclamation-circle{% elif issue.severity == 'medium' %}exclamation-triangle{% else %}info-circle{% endif %}"></i>
+                                {{ issue.type|title }} ({{ issue.severity|title }} Severity)
+                            </h6>
+                            <p class="mb-2"><strong>Columns:</strong> {{ ', '.join(issue.columns_involved or []) }}</p>
+                            <p class="mb-2"><strong>Evidence:</strong> {{ issue.evidence }}</p>
+                            <p class="mb-0"><strong>Suggested Fix:</strong> {{ issue.suggested_fix }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Preprocessing Actions -->
+        {% if analysis and analysis.actions_plan %}
+        <div class="card analysis-card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-cogs"></i> Recommended Preprocessing Actions</h5>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('clean_dataset') }}" method="post">
+                    <div class="row">
+                        {% for action in analysis.actions_plan %}
+                        <div class="col-md-6 mb-3">
+                            <div class="card action-card h-100">
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" 
+                                               value="action_{{ loop.index0 }}" 
+                                               id="action_{{ loop.index0 }}" 
+                                               name="selected_actions" checked>
+                                        <label class="form-check-label" for="action_{{ loop.index0 }}">
+                                            <h6 class="text-primary">
+                                                <i class="fas fa-{% if action.action == 'encode' %}code{% elif action.action == 'scale' %}balance-scale{% elif action.action == 'impute' %}fill-drip{% elif action.action == 'transform' %}exchange-alt{% else %}cog{% endif %}"></i>
+                                                {{ action.action|title }}
+                                            </h6>
+                                        </label>
+                                    </div>
+                                    <p class="mb-2"><strong>Columns:</strong> {{ ', '.join(action.columns) }}</p>
+                                    <p class="mb-2 text-muted">{{ action.rationale }}</p>
+                                    {% if action.expected_effect %}
+                                    <small class="text-success">
+                                        <i class="fas fa-arrow-right"></i> {{ action.expected_effect }}
+                                    </small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <button type="button" class="btn btn-outline-secondary" onclick="toggleAll()">
+                            <i class="fas fa-check-double"></i> Toggle All
+                        </button>
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fas fa-magic"></i> Apply Selected Actions
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Dataset Preview -->
+        {% if dataset_preview %}
+        <div class="card analysis-card mb-4">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="fas fa-eye"></i> Dataset Preview (First 10 rows)</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                {% if dataset_preview[0] %}
+                                    {% for column in dataset_preview[0].keys() %}
+                                    <th>{{ column }}</th>
+                                    {% endfor %}
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in dataset_preview %}
+                            <tr>
+                                {% for value in row.values() %}
+                                <td>{{ value if value is not none else '' }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Column Reports -->
+        {% if analysis and analysis.column_reports %}
+        <div class="card analysis-card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-columns"></i> Column Analysis</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Column</th>
+                                <th>Type</th>
+                                <th>Role</th>
+                                <th>Missing %</th>
+                                <th>Unique Count</th>
+                                <th>Suggestions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for column in analysis.column_reports %}
+                            <tr>
+                                <td><strong>{{ column.name }}</strong></td>
+                                <td><span class="badge bg-info">{{ column.dtype_guess }}</span></td>
+                                <td><span class="badge bg-secondary">{{ column.role_guess or 'Unknown' }}</span></td>
+                                <td>
+                                    {% if column.missing_pct > 20 %}
+                                        <span class="text-danger">{{ "%.1f"|format(column.missing_pct) }}%</span>
+                                    {% elif column.missing_pct > 5 %}
+                                        <span class="text-warning">{{ "%.1f"|format(column.missing_pct) }}%</span>
+                                    {% else %}
+                                        <span class="text-success">{{ "%.1f"|format(column.missing_pct) }}%</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ column.unique_count_est or 'N/A' }}</td>
+                                <td>
+                                    <small>
+                                        {% if column.encoding_suggestion %}
+                                            <div>Encoding: {{ column.encoding_suggestion }}</div>
+                                        {% endif %}
+                                        {% if column.scaling_suggestion %}
+                                            <div>Scaling: {{ column.scaling_suggestion }}</div>
+                                        {% endif %}
+                                    </small>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

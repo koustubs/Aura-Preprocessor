@@ -1,0 +1,15 @@
+2025-09-30 08:35:40,416 - auto_preprocessor - INFO - Starting AutoDataPreprocessor
+2025-09-30 08:35:40,416 - auto_preprocessor - ERROR - Error: Groq API key is required. Set GROQ_API_KEY in .env file or pass directly.
+Traceback (most recent call last):
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/main.py", line 257, in main
+    analysis_result = analyze_dataset(
+                      ^^^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/main.py", line 108, in analyze_dataset
+    analyzer = DataAnalyzer()
+               ^^^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/data_analyzer.py", line 38, in __init__
+    self.llm_client = llm_client or GroqClient()
+                                    ^^^^^^^^^^^^
+  File "/home/santosh/AURA ML/AutoDataPreprocessor/src/llm_client.py", line 44, in __init__
+    raise ValueError("Groq API key is required. Set GROQ_API_KEY in .env file or pass directly.")
+ValueError: Groq API key is required. Set GROQ_API_KEY in .env file or pass directly.

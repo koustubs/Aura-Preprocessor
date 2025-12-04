@@ -1,0 +1,51 @@
+PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+710,1,3,"Moubarek, Master. Halim Gonios (""William George"")",male,29.6991176470588,1,1.0,2661,15.2458,B96 B98,C
+440,0,2,"Kvillner, Mr. Johan Henrik Johannesson",male,31.0,0,0.0,C.A. 18723,10.5,B96 B98,S
+841,0,3,"Alhomaki, Mr. Ilmari Rudolf",male,20.0,0,0.0,SOTON/O2 3101287,7.925,B96 B98,S
+721,1,2,"Harper, Miss. Annie Jessie ""Nina""",female,6.0,0,1.0,248727,33.0,B96 B98,S
+40,1,3,"Nicola-Yarred, Miss. Jamila",female,14.0,1,0.0,2651,11.2417,B96 B98,C
+291,1,1,"Barber, Miss. Ellen ""Nellie""",female,26.0,0,0.0,19877,78.85,B96 B98,S
+301,1,3,"Kelly, Miss. Anna Katherine ""Annie Kate""",female,29.6991176470588,0,0.0,9234,7.75,B96 B98,Q
+334,0,3,"Vander Planke, Mr. Leo Edmondus",male,16.0,2,0.0,345764,18.0,B96 B98,S
+209,1,3,"Carr, Miss. Helen ""Ellen""",female,16.0,0,0.0,367231,7.75,B96 B98,Q
+137,1,1,"Newsom, Miss. Helen Monypeny",female,19.0,0,2.0,11752,26.2833,D47,S
+138,0,1,"Futrelle, Mr. Jacques Heath",male,37.0,1,0.0,113803,53.1,C123,S
+697,0,3,"Kelly, Mr. James",male,44.0,0,0.0,363592,8.05,B96 B98,S
+486,0,3,"Lefebre, Miss. Jeannie",female,29.6991176470588,3,1.0,4133,25.4667,B96 B98,S
+245,0,3,"Attalah, Mr. Sleiman",male,30.0,0,0.0,2694,7.225,B96 B98,C
+345,0,2,"Fox, Mr. Stanley Hubert",male,36.0,0,0.0,229236,13.0,B96 B98,S
+854,1,1,"Lines, Miss. Mary Conover",female,16.0,0,1.0,PC 17592,39.4,D28,S
+622,1,1,"Kimball, Mr. Edwin Nelson Jr",male,42.0,1,0.0,11753,52.5542,D19,S
+654,1,3,"O'Leary, Miss. Hanora ""Norah""",female,29.6991176470588,0,0.0,330919,7.8292,B96 B98,Q
+887,0,2,"Montvila, Rev. Juozas",male,27.0,0,0.0,211536,13.0,B96 B98,S
+111,0,1,"Porter, Mr. Walter Chamberlain",male,47.0,0,0.0,110465,52.0,C110,S
+295,0,3,"Mineff, Mr. Ivan",male,24.0,0,0.0,349233,7.8958,B96 B98,S
+448,1,1,"Seward, Mr. Frederic Kimber",male,34.0,0,0.0,113794,26.55,B96 B98,S
+193,1,3,"Andersen-Jensen, Miss. Carla Christine Nielsine",female,19.0,1,0.0,350046,7.8542,B96 B98,S
+683,0,3,"Olsvigen, Mr. Thor Anderson",male,20.0,0,0.0,6563,9.225,B96 B98,S
+539,0,3,"Risien, Mr. Samuel Beard",male,29.6991176470588,0,0.0,364498,14.5,B96 B98,S
+820,0,3,"Skoog, Master. Karl Thorsten",male,10.0,3,2.0,347088,27.9,B96 B98,S
+31,0,1,"Uruchurtu, Don. Manuel E",male,40.0,0,0.0,PC 17601,27.7208,B96 B98,C
+674,1,2,"Wilhelms, Mr. Charles",male,31.0,0,0.0,244270,13.0,B96 B98,S
+64,0,3,"Skoog, Master. Harald",male,4.0,3,2.0,347088,27.9,B96 B98,S
+397,0,3,"Olsson, Miss. Elina",female,31.0,0,0.0,350407,7.8542,B96 B98,S
+878,0,3,"Petroff, Mr. Nedelio",male,19.0,0,0.0,349212,7.8958,B96 B98,S
+142,1,3,"Nysten, Miss. Anna Sofia",female,22.0,0,0.0,347081,7.75,B96 B98,S
+794,0,1,"Hoyt, Mr. William Fisher",male,29.6991176470588,0,0.0,PC 17600,30.6958,B96 B98,C
+236,0,3,"Harknett, Miss. Alice Phoebe",female,29.6991176470588,0,0.0,W./C. 6609,7.55,B96 B98,S
+205,1,3,"Cohen, Mr. Gurshon ""Gus""",male,18.0,0,0.0,A/5 3540,8.05,B96 B98,S
+621,0,3,"Yasbeck, Mr. Antoni",male,27.0,1,0.0,2659,14.4542,B96 B98,C
+24,1,1,"Sloper, Mr. William Thompson",male,28.0,0,0.0,,35.5,A6,S
+199,1,3,"Madigan, Miss. Margaret ""Maggie""",female,29.6991176470588,0,0.0,370370,7.75,B96 B98,Q
+843,1,1,"Serepeca, Miss. Augusta",female,30.0,0,0.0,113798,31.0,B96 B98,C
+740,0,3,"Nankoff, Mr. Minko",male,29.6991176470588,0,0.0,349218,7.8958,B96 B98,S
+121,0,2,"Hickman, Mr. Stanley George",male,21.0,2,0.0,S.O.C. 14879,73.5,B96 B98,S
+478,0,3,"Braund, Mr. Lewis Richard",male,29.0,1,0.0,3460,7.0458,B96 B98,S
+838,0,3,"Sirota, Mr. Maurice",male,29.6991176470588,0,0.0,392092,8.05,B96 B98,S
+791,0,3,"Keane, Mr. Andrew ""Andy""",male,29.6991176470588,0,0.0,12460,7.75,B96 B98,Q
+363,0,3,"Barbara, Mrs. (Catherine David)",female,45.0,0,1.0,2691,14.4542,B96 B98,C
+87,0,3,"Ford, Mr. William Neal",male,16.0,1,3.0,W./C. 6608,34.375,B96 B98,S
+68,0,3,"Crease, Mr. Ernest James",male,19.0,0,0.0,S.P. 3464,8.1583,B96 B98,S
+351,0,3,"Odahl, Mr. Nils Martin",male,23.0,0,0.0,7267,9.225,B96 B98,S
+211,0,3,"Ali, Mr. Ahmed",male,24.0,0,0.0,SOTON/O.Q. 3101311,7.05,B96 B98,S
+660,0,1,"Newell, Mr. Arthur Webster",male,58.0,0,2.0,35273,113.275,D48,C

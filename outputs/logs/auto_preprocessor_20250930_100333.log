@@ -1,0 +1,64 @@
+2025-09-30 10:03:34,865 - werkzeug - WARNING -  * Debugger is active!
+2025-09-30 10:03:34,867 - werkzeug - INFO -  * Debugger PIN: 121-424-026
+2025-09-30 10:04:57,856 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:04:57] "GET / HTTP/1.1" 200 -
+2025-09-30 10:04:58,518 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:04:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-30 10:05:48,789 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:05:48] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-30 10:05:48,811 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:05:48,826 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:05:48,827 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 10:05:48,835 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 10:05:48,835 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 10:05:48,911 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 10:05:48,918 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 10:05:48,919 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 10:05:48,920 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/AURA ML/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_100548.json
+2025-09-30 10:05:48,920 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:05:48,925 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:05:48,993 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:05:48] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 10:06:46,022 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:06:46] "GET / HTTP/1.1" 200 -
+2025-09-30 10:07:07,852 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:07:07] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-30 10:07:07,873 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:07:07,888 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:07:07,889 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 10:07:07,894 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 10:07:07,895 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 10:07:07,971 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 10:07:07,977 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 10:07:07,978 - auto_preprocessor.llm_client - INFO - Sending analysis request to Groq API (model: llama-3.1-8b-instant)
+2025-09-30 10:07:10,760 - auto_preprocessor.llm_client - INFO - Received response in 2.78 seconds
+2025-09-30 10:07:10,807 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/AURA ML/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_100710.json
+2025-09-30 10:07:10,807 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:07:10,815 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:07:10,820 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:07:10] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 10:08:06,380 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:08:06] "[32mPOST /clean HTTP/1.1[0m" 302 -
+2025-09-30 10:08:06,404 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:08:06,419 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:08:06,421 - auto_preprocessor.data_analyzer - INFO - Using random sampling
+2025-09-30 10:08:06,426 - auto_preprocessor.data_analyzer - INFO - Saved dataset sample to /home/santosh/AURA ML/AutoDataPreprocessor/data/samples/sample_cleaned_titanic.csv
+2025-09-30 10:08:06,426 - auto_preprocessor.data_analyzer - INFO - Computing dataset statistics
+2025-09-30 10:08:06,497 - auto_preprocessor.data_analyzer - INFO - Saved statistics to /home/santosh/AURA ML/AutoDataPreprocessor/data/processed/stats_cleaned_titanic.json
+2025-09-30 10:08:06,510 - auto_preprocessor.data_analyzer - INFO - Requesting LLM analysis of dataset
+2025-09-30 10:08:06,512 - auto_preprocessor.llm_client - INFO - Using cached LLM response
+2025-09-30 10:08:06,513 - auto_preprocessor.data_analyzer - INFO - Saved LLM analysis report to /home/santosh/AURA ML/AutoDataPreprocessor/outputs/reports/analysis_cleaned_titanic_20250930_100806.json
+2025-09-30 10:08:06,514 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:08:06,524 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:08:06,528 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:08:06] "GET /analyze HTTP/1.1" 200 -
+2025-09-30 10:08:09,917 - auto_preprocessor.data_analyzer - INFO - Loading dataset from /home/santosh/AURA ML/AutoDataPreprocessor/data/raw/cleaned_titanic.csv
+2025-09-30 10:08:09,928 - auto_preprocessor.data_analyzer - INFO - Dataset loaded successfully: 891 rows, 12 columns
+2025-09-30 10:08:09,928 - auto_preprocessor.data_cleaner - INFO - Applying action action_0: impute on ['Age', 'Parch']
+2025-09-30 10:08:09,929 - auto_preprocessor.data_cleaner - INFO - Rationale: impute missing values using mean
+2025-09-30 10:08:09,929 - auto_preprocessor.data_cleaner - INFO - Imputing numeric columns ['Age', 'Parch'] using mean
+2025-09-30 10:08:09,940 - auto_preprocessor.data_cleaner - INFO - Applying action action_1: scale on ['Age', 'Fare']
+2025-09-30 10:08:09,941 - auto_preprocessor.data_cleaner - INFO - Rationale: scale numerical columns using StandardScaler
+2025-09-30 10:08:09,942 - auto_preprocessor.data_cleaner - INFO - Standardizing columns: ['Age', 'Fare']
+2025-09-30 10:08:09,952 - auto_preprocessor.data_cleaner - INFO - Applying action action_2: encode on ['Name', 'Ticket', 'Cabin']
+2025-09-30 10:08:09,953 - auto_preprocessor.data_cleaner - INFO - Rationale: encode categorical columns using label encoding
+2025-09-30 10:08:09,954 - auto_preprocessor.data_cleaner - INFO - One-hot encoding columns: ['Name', 'Ticket', 'Cabin']
+2025-09-30 10:08:09,954 - auto_preprocessor.data_cleaner - ERROR - Error applying action action_2: OneHotEncoder.__init__() got an unexpected keyword argument 'sparse'
+2025-09-30 10:08:09,954 - auto_preprocessor.data_cleaner - INFO - Applied 2 actions, skipped 1 actions
+2025-09-30 10:08:10,003 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:08:10] "POST /clean HTTP/1.1" 200 -
+2025-09-30 10:08:14,545 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:08:14] "GET /download/cleaned_titanic_cleaned_20250930_100809.csv HTTP/1.1" 200 -
+2025-09-30 10:09:29,666 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:09:29] "GET / HTTP/1.1" 200 -
+2025-09-30 10:09:30,467 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:09:30] "GET /reports HTTP/1.1" 200 -
+2025-09-30 10:09:33,617 - werkzeug - INFO - 127.0.0.1 - - [30/Sep/2025 10:09:33] "GET / HTTP/1.1" 200 -
+2025-09-30 10:11:25,251 - werkzeug - INFO -  * Detected change in '/home/santosh/AURA ML/AutoDataPreprocessor/src/data_cleaner.py', reloading

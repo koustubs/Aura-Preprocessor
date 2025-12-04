@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}Cleaning Results - AutoDataPreprocessor{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="text-center mb-4">
+            <h2 class="text-success"><i class="fas fa-check-circle"></i> Dataset Cleaning Complete!</h2>
+            <p class="lead">Your dataset has been successfully preprocessed and is ready for machine learning.</p>
+        </div>
+
+        <!-- Cleaning Summary -->
+        {% if cleaning_summary %}
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Cleaning Summary</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="border-end">
+                            <h4 class="text-primary">{{ cleaning_summary.original_shape[0] }}</h4>
+                            <small class="text-muted">Original Rows</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border-end">
+                            <h4 class="text-success">{{ cleaning_summary.cleaned_shape[0] }}</h4>
+                            <small class="text-muted">Cleaned Rows</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border-end">
+                            <h4 class="text-info">{{ cleaning_summary.cleaned_shape[1] }}</h4>
+                            <small class="text-muted">Final Columns</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="text-warning">{{ cleaning_summary.actions_applied }}</h4>
+                        <small class="text-muted">Actions Applied</small>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="fas fa-file-alt"></i> Output File</h6>
+                        <p class="mb-0">{{ cleaning_summary.filename }}</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <a href="{{ url_for('download_file', filename=cleaning_summary.filename) }}" 
+                           class="btn btn-primary btn-lg">
+                            <i class="fas fa-download"></i> Download Cleaned Dataset
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Before/After Comparison -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <h6 class="mb-0"><i class="fas fa-before"></i> Original Columns</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for column in original_columns %}
+                            <div class="col-md-6 mb-2">
+                                <span class="badge bg-secondary">{{ column }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header bg-success text-white">
+                        <h6 class="mb-0"><i class="fas fa-after"></i> Cleaned Columns</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for column in cleaned_columns %}
+                            <div class="col-md-6 mb-2">
+                                <span class="badge bg-{% if column in original_columns %}primary{% else %}success{% endif %}">
+                                    {{ column }}
+                                    {% if column not in original_columns %}
+                                        <i class="fas fa-plus-circle"></i>
+                                    {% endif %}
+                                </span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cleaned Dataset Preview -->
+        {% if cleaned_preview %}
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-eye"></i> Cleaned Dataset Preview (First 10 rows)</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                {% if cleaned_preview[0] %}
+                                    {% for column in cleaned_preview[0].keys() %}
+                                    <th>{{ column }}</th>
+                                    {% endfor %}
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in cleaned_preview %}
+                            <tr>
+                                {% for value in row.values() %}
+                                <td>{{ value if value is not none else '' }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Next Steps -->
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-lightbulb"></i> Next Steps</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <i class="fas fa-robot fa-3x text-primary mb-3"></i>
+                            <h6>Machine Learning</h6>
+                            <p class="text-muted">Your data is now ready for training ML models like Random Forest, XGBoost, or Neural Networks.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                            <h6>Data Analysis</h6>
+                            <p class="text-muted">Use the cleaned data for exploratory data analysis, visualization, and statistical modeling.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <i class="fas fa-share-alt fa-3x text-info mb-3"></i>
+                            <h6>Export & Share</h6>
+                            <p class="text-muted">Download the processed data and share it with your team or use it in other tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-4">
+            <div class="btn-group" role="group">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-primary">
+                    <i class="fas fa-upload"></i> Process Another Dataset
+                </a>
+                <a href="{{ url_for('view_reports') }}" class="btn btn-outline-info">
+                    <i class="fas fa-chart-bar"></i> View All Reports
+                </a>
+                <a href="{{ url_for('download_file', filename=cleaning_summary.filename) }}" 
+                   class="btn btn-success">
+                    <i class="fas fa-download"></i> Download Again
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
