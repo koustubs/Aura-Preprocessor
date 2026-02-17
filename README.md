@@ -150,4 +150,4 @@ To add a new cleaning method:
 - [Koustub S](https://github.com/koustubs)
 - [Santosh Kumaar](https://github.com/Santosh7131)
 - [Hari K](https://github.com/HXRIkumar)
-- [Contributor 3](https://github.com/contributor3)
+- [Sai Pavan](https://github.com/saipavan)
